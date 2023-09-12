@@ -7,13 +7,13 @@ export default class Room{
         this.scene = this.experience.scene;
         this.time = this.experience.time;
         this.resources = this.experience.resources;
-        this.room = this.resources.items.room;
+        //this.room = this.resources.items.room;
         this.computer = this.resources.items.computer;
-        this.actualRoom = this.room.scene;
+        //this.actualRoom = this.room.scene;
         this.actualComputer = this.computer.scene;
         //console.log(this.actualRoom);
 
-        const textureChangeInterval = 1000
+        const textureChangeInterval = 5000
 
         this.lerp = {
             current:0,
@@ -42,7 +42,7 @@ export default class Room{
         this.mixer = new THREE.AnimationMixer(this.actualComputer); //room is the resource list, actual room is the room object
         this.swim = this.mixer.clipAction(this.computer.animations[0]);
         console.log("animation");
-        console.log(this.room.animations[0]);
+        //console.log(this.room.animations[0]);
         console.log(this.swim);
         this.mixer.timeScale = 0.001;
         this.swim.play(); //this is not playing
@@ -86,14 +86,14 @@ export default class Room{
             }
         });
         console.log("print items");
-        console.log(this.actualComputer.children);
-        console.log(this.actualRoom.children);
+        //console.log(this.actualComputer.children);
+        //console.log(this.actualRoom.children);
         //this.scene.add(this.actualRoom);
         this.scene.add(this.actualComputer);
         this.actualComputer.rotation.set(0, Math.PI/3, 0);
         
         this.actualComputer.scale.set(0.4,0.4,0.4);
-        this.actualRoom.scale.set(0.2,0.2,0.2);
+        //this.actualRoom.scale.set(0.2,0.2,0.2);
         //this.actualRoom.rotation.y = 0.25*Math.PI;\
         console.log("items");
         console.log(this.resources.items);
@@ -120,7 +120,7 @@ export default class Room{
             //console.log(e);
             //0----->screensize
             this.rotation = (2*(e.clientX - window.innerWidth / 2))/window.innerWidth;
-            this.lerp.target = this.rotation*0.1;
+            this.lerp.target = this.rotation*0.25;
             //console.log(this.rotation);            
         })
     }

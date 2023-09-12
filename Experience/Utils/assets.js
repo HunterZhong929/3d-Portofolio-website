@@ -2,11 +2,7 @@
 
 export default[
 
-    {
-        name: "room",
-        type: "glbModel",
-        path: "/models/New Boko.glb"
-    },
+  
     {
         name: "computer",
         type: "glbModel",
